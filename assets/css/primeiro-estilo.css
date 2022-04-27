@@ -74,4 +74,8 @@
         mark{
             background-color: blueviolet;
         }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
 

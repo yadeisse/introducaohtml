@@ -11,5 +11,102 @@
 
     <a href="index.html">Clique aqui para voltar para a página principal</a>
     
+   <div>
+       <form>
+           <fieldset>
+
+               <label for ="username">Nome do usuário</label>
+               <br>
+               <input type ="text" id="username"> 
+
+               <label for ="senha">Senha</label>
+               <br>
+               <input type ="password" id= "senha">
+
+               <br>
+               <input type="radio" id="homem" name="sexo">
+               <label for ="homem">Homem</label>
+               <br>
+               <input type="radio" id="mulher" name="sexo">
+               <label for ="mulher">Mulher</label>
+               <br>
+               <input type="radio" id="indefinido" name="sexo">
+               <label for ="indefinido">indefinido</label>
+               <br>
+
+               <button onclick="cadastrarUsuario()">Cadastrar</button>
+
+           </fieldset>
+       </form>
+   </div>
+
+   <div>
+       <button onclick="incrementar()">Incrementar</button>
+       <input type = "text" id="conteudo-que-sera-manipulado">
+
+       <br> 
+
+       <input type = "text" id="segundo-input" width=""/>
+
+   </div>
+
 </body>
 </html>
+
+
+<script>
+
+    let contador = 0; 
+    let mudarCor = false; 
+
+    function cadastrarUsuario(){ 
+        event.preventDefault();
+        console.log("funcao de cadastrar usuario foi chamada");
+    }
+
+    function incrementar(){
+        let elemento = document.getElementById("conteudo-que-sera-manipulado");
+        elemento.value = "valor" + contador;
+
+        valorAntigoDocontador = contador;
+        contador += 1;
+
+        metodoQueRecebeUmParamentro(valorAntigoDocontador, contador);
+    }
+
+    function metodoQueRecebeUmParamentro(primeiroParametro,segundoParametro){
+        
+        console.log("conteudo do primeiro parametro: " + primeiroParametro);
+
+        let segundoElemento = document.getElementById("segundo-input");
+       
+
+        try { 
+            
+            segundoElemento.value = "valor 1: " + primeiroParametro + "valor 2: " + segundoParametro; 
+            
+        } catch (error) {
+            console.error(error);
+            
+        }
+
+        if (contador > 4) {
+            contador = 0; 
+
+            mudarCor = !mudarCor;
+
+            if(mudarCor){ 
+                segundoElemento.setAttribute("style", "color : blue;");
+
+            }else{
+                segundoElemento.setAttribute("style", "color : red;");
+            }
+
+        }
+
+        console.log("Cheguei ao fim do segundo metodo");
+        
+    }
+
+
+</script>
